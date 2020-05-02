@@ -1,20 +1,14 @@
 import React from "react";
+import TableHeader from "../TableHeader";
 import DataBody from "../DataBody";
 
 
 function DataTable(props){
     return (
-        <ol>
-            {props.eList.map(e => {
-                return <DataBody 
-                    key={e.name.last}
-                    employeeIMG={e.picture.medium}
-                    employeeName={e.name}
-                    employeeNumber={e.cell}
-                    employeeEmail={e.email}
-                />
-            })}
-        </ol>
+        <table className="table table-striped table-bordered table-sm" cellSpacing="0" width="100%">
+            <TableHeader />
+            <DataBody eList={props.eList} />
+        </table>
     );
 }
 
