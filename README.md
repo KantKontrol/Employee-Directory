@@ -51,3 +51,69 @@ You are required to submit the following:
 
 * the URL to the Github repository
 
+Homework Guidance
+1. App will have one "container" to maintain state. Call it something like `EmployeeManager` or more generally, `DataArea`
+2. App will have multiple "components" to display data and interact with state. Components will include
+- DataTable
+- DataBody
+- Header
+- Nav
+- SearchBox
+3. You should have a high order component to wrap the nav bar and the DataArea. This order component
+is what will be whats returned from the highest level `App` Component. 
+4. You dont need to write an express server and database, instead you can use this API to get fake employee data:
+https://randomuser.me/
+4a) Use axios to fetch data from this API
+Hint 1)
+All of the application logic will live in the application container
+Hint 2)
+To do the sorting here is a comparator function:
+(edited)
+
+
+
+
+
+9:04
+    const compareFnc = (a, b) => {
+      if (this.state.order === "ascend") {
+        // account for missing values
+        if (a[heading] === undefined) {
+          return 1;
+        } else if (b[heading] === undefined) {
+          return -1;
+        }
+        // numerically
+        else if (heading === "name") {
+          return a[heading].first.localeCompare(b[heading].first);
+        } else {
+          return a[heading] - b[heading];
+        }
+      } else {
+        // account for missing values
+        if (a[heading] === undefined) {
+          return 1;
+        } else if (b[heading] === undefined) {
+          return -1;
+        }
+        // numerically
+        else if (heading === "name") {
+          return b[heading].first.localeCompare(a[heading].first);
+        } else {
+          return b[heading] - a[heading];
+        }
+      }
+    }
+
+Evan Arbeitman  1:21 PM
+hey @channel wanted to clarify one of the hints I gave out early
+1:21
+3. You should have a high order component to wrap the nav bar and the DataArea. This order component
+1:22
+There isnt a navbar component
+1:22
+The table header needs to have a column to search by (i.e name)
+1:22
+the higher level container will hold both the search bar and the table itself.
+1:23
+So there will be a page header and a table header. Nav bar was meant to be table header
