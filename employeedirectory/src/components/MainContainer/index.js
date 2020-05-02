@@ -5,7 +5,7 @@ import DataArea from "../DataArea";
 
 function MainContainer(props){
     return (
-        <div className="container-fluid">
+        <div className="container">
             <Header />
 
             <div className="row">

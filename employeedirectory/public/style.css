@@ -1,8 +1,19 @@
 html, body {
     height: 100%;
+    background-image: url("./background");
+}
+
+.navbar-brand {
+    display: block;
+    margin: 0 auto;
 }
 
 .dataArea {
-    height: 500px;
-    background-color: darkgray;
+    height: max-content;
+    background-color: white;
+}
+
+.dataRow {
+    background-color: white;
+    border-bottom: 1px solid lightgray;
 }
