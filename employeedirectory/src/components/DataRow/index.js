@@ -9,7 +9,7 @@ function DataRow(props){
             <td>{props.employeeName.last}</td>
             <td>{props.employeeNumber}</td>
             <td>{props.employeeEmail}</td>
-            <td>{props.employeeDOB}</td>
+            <td>{props.employeeDOB.substring(0, props.employeeDOB.length-14)}</td>
         </tr>
     );
 }
