@@ -3,9 +3,9 @@ import React from "react";
 
 function DataBody(props){
     return (
-        <div>
-
-        </div>
+        <li className="dataBody">
+            <img className="" src={props.employeeImage} alt="..." />
+        </li>
     );
 }
 

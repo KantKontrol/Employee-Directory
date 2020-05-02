@@ -1,0 +1,8 @@
+html, body {
+    height: 100%;
+}
+
+.dataArea {
+    height: 500px;
+    background-color: darkgray;
+}
