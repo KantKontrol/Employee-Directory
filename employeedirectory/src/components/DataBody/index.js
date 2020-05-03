@@ -3,9 +3,14 @@ import DataRow from "../DataRow";
 
 
 function DataBody(props){
+
+
+    let friends = props.eList.sort(props.compareStr);
+
+
     return (
         <tbody>
-            {props.eList.map(e => {
+            {friends.map(e => {
                 return <DataRow 
                     key={e.name.last}
                     employeeIMG={e.picture.thumbnail}

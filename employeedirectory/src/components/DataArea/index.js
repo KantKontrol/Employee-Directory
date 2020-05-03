@@ -8,7 +8,8 @@ import API from "../../utils/API";
 class DataArea extends React.Component {
 
     state = {
-        employees: []
+        employees: [],
+        order: "ascend"
     };
 
 
@@ -22,12 +23,51 @@ class DataArea extends React.Component {
         });
     }
 
+    changeSortDirection = () => {
+        console.log("Sort!");
+        this.state.order === "descend" ? this.setState({ order: "ascend" }) : this.setState({ order: "descend" });
+    }   
+
+    compareStr = (a, b) => {
+        let heading = "name";
+        if (this.state.order === "ascend") {
+          // account for missing values
+          if (a[heading] === undefined) {
+            return 1;
+          } else if (b[heading] === undefined) {
+            return -1;
+          }
+          // numerically
+          else if (heading === "name") {
+            return a[heading].last.localeCompare(b[heading].last);
+          } else {
+            return a[heading] - b[heading];
+          }
+        } else {
+          // account for missing values
+          if (a[heading] === undefined) {
+            return 1;
+          } else if (b[heading] === undefined) {
+            return -1;
+          }
+          // numerically
+          else if (heading === "name") {
+            return b[heading].last.localeCompare(a[heading].last);
+          } else {
+            return b[heading] - a[heading];
+          }
+        }
+      }
+
     render(){
         return (
             <div className="dataArea">
                 <SearchBar />
                 <DataTable
                     eList={this.state.employees}
+                    compareStr={this.compareStr}
+                    sortDirection={this.state.order}
+                    changeSortDirection={this.changeSortDirection}
                 />
             </div>
         );
