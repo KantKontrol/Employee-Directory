@@ -17,7 +17,6 @@ class DataArea extends React.Component {
 
     getEmployeeList = () => {
         API.getEmployees(10).then(res => {
-            console.log(res.data.results);
             this.setState({ employees: res.data.results });
         });
     }
