@@ -18,6 +18,14 @@ html, body {
     border-bottom: 1px solid lightgray;
 }
 
+.showRow {
+    display: visible;
+}
+
+.hideRow {
+    display: none;
+}
+
 .sortImageUp {
     -webkit-transform:rotate(180deg);
     -moz-transform: rotate(180deg);

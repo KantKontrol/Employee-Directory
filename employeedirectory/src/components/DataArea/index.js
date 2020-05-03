@@ -4,6 +4,7 @@ import SearchBar from "../SearchBar";
 import API from "../../utils/API";
 
 
+const EMPLOYEE_AMOUNT = 20; //Determines amount of employees to get from API
 
 class DataArea extends React.Component {
 
@@ -13,14 +14,17 @@ class DataArea extends React.Component {
         order: "ascend"
     };
 
+    
+
 
     componentDidMount = () => {
         this.getEmployeeList();
     }
 
     getEmployeeList = () => {
-        API.getEmployees(10).then(res => {
+        API.getEmployees(EMPLOYEE_AMOUNT).then(res => {
             this.setState({ employees: res.data.results });
+            this.modifyEmployeeBySearch(""); //calls employee setup with no value so we can draw all employees on startup
         });
     }
 
@@ -28,6 +32,29 @@ class DataArea extends React.Component {
         let { value } = event.target;
 
         this.setState({ searchState: value });
+        this.modifyEmployeeBySearch(value);
+    }
+
+    modifyEmployeeBySearch = (value) => {
+        let eList = this.state.employees;
+
+        if(/\S/.test(value)){ //if string is not empty
+            eList.forEach(e => {
+                if(e.name.last.includes(value)){
+                    e.render = true;
+                }
+                else {
+                    e.render = false;
+                }
+            });
+        }
+        else{ //If search is empty draw all
+            eList.forEach(e => {
+                e.render = true
+            });
+            
+            this.setState({ employees: eList });
+        }
     }
 
     changeSortDirection = () => {

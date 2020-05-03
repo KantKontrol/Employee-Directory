@@ -3,7 +3,7 @@ import React from "react";
 
 function DataRow(props){
     return (
-        <tr className="dataRow">
+        <tr className={props.render ? "dataRow showRow" : "dataRow hideRow"}>
             <td><img className="" src={props.employeeIMG} alt="..." /></td>
             <td>{props.employeeName.last}, {props.employeeName.first}</td>
             <td>{props.employeeNumber}</td>

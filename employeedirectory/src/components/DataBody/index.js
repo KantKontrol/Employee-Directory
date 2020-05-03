@@ -5,20 +5,22 @@ import DataRow from "../DataRow";
 function DataBody(props){
 
 
-    let friends = props.eList.sort(props.compareStr);
+    let employees = props.eList.sort(props.compareStr);
 
 
     return (
         <tbody>
-            {friends.map(e => {
+            {employees.map(e => {
+
                 return <DataRow 
-                    key={e.name.last}
+                    key={e.cell}
                     employeeIMG={e.picture.thumbnail}
                     employeeName={e.name}
                     employeeNumber={e.cell}
                     employeeEmail={e.email}
                     employeeDOB={e.dob.date}
-                />
+                    render={e.render}
+                />;
             })}
         </tbody>
     );
