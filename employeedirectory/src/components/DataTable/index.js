@@ -7,7 +7,7 @@ function DataTable(props){
     return (
         <div className="table-responsive w-auto">
             <table className="table table-striped table-bordered table-sm" cellSpacing="0" width="100%">
-                <TableHeader changeSortDirection={props.changeSortDirection}/>
+                <TableHeader changeSortDirection={props.changeSortDirection} sortDirection={props.sortDirection} />
                 <DataBody eList={props.eList} sortDirection={props.sortDirection} compareStr={props.compareStr}/>
             </table>
         </div>
