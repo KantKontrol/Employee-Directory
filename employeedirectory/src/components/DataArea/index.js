@@ -9,6 +9,7 @@ class DataArea extends React.Component {
 
     state = {
         employees: [],
+        searchState: "",
         order: "ascend"
     };
 
@@ -21,6 +22,12 @@ class DataArea extends React.Component {
         API.getEmployees(10).then(res => {
             this.setState({ employees: res.data.results });
         });
+    }
+
+    handleSearchInput = event => {
+        let { value } = event.target;
+
+        this.setState({ searchState: value });
     }
 
     changeSortDirection = () => {
@@ -62,7 +69,7 @@ class DataArea extends React.Component {
     render(){
         return (
             <div className="dataArea">
-                <SearchBar />
+                <SearchBar handleInput={this.handleSearchInput} currentInput={this.state.searchState} />
                 <DataTable
                     eList={this.state.employees}
                     compareStr={this.compareStr}
