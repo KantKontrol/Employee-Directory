@@ -8,7 +8,7 @@ function DataBody(props){
             {props.eList.map(e => {
                 return <DataRow 
                     key={e.name.last}
-                    employeeIMG={e.picture.medium}
+                    employeeIMG={e.picture.thumbnail}
                     employeeName={e.name}
                     employeeNumber={e.cell}
                     employeeEmail={e.email}

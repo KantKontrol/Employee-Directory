@@ -6,11 +6,11 @@ function TableHeader(){
     return (
         <thead>
             <tr>
-                <th className="th-sm">{/* profile pic */}</th>
-                <th className="th-sm">Name</th>
-                <th className="th-sm">Number</th>
-                <th className="th-sm">Email</th>
-                <th className="th-sm">DOB</th>
+                <th className="th-sm" scope="col">{/* profile pic */}</th>
+                <th className="th-sm" scope="col">Name</th>
+                <th className="th-sm" scope="col">Number</th>
+                <th className="th-sm" scope="col">Email</th>
+                <th className="th-sm" scope="col">DOB</th>
             </tr>
         </thead>
     );
