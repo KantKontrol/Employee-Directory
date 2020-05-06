@@ -1,119 +1,68 @@
-# Unit 19 React Homework: Employee Directory
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Overview
+## Available Scripts
 
-For this assignment, you'll create a employee directory with React. This assignment will require you to break up your application's UI into components, manage component state, and respond to user events.
+In the project directory, you can run:
 
-## User Story
+### `npm start`
 
-* As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information.
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Business Context
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-An employee or manager would benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by name.
+### `npm test`
 
-## Acceptance Criteria
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Given a table of random users, when the user loads the page, a table of employees should render. 
+### `npm run build`
 
-The user should be able to:
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-  * Sort the table by at least one category
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-  * Filter the users by at least one property.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Commit Early and Often
+### `npm run eject`
 
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-2. Your commit history allows you to revert your code base in the event that you need to return to a previous state
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Follow these guidelines for committing:
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-* Make single purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits
+## Learn More
 
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-* Don't commit half done work, for the sake of your collaborators (and your future self!)
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-* Test your application before you commit to ensure functionality at every step in the development process
+### Code Splitting
 
-We would like you to have well over 200 commits by graduation, so commit early and often!
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
+### Analyzing the Bundle Size
 
-## Submission on BCS
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-You are required to submit the following:
+### Making a Progressive Web App
 
-* the URL to the deployed application
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-* the URL to the Github repository
+### Advanced Configuration
 
-Homework Guidance
-1. App will have one "container" to maintain state. Call it something like `EmployeeManager` or more generally, `DataArea`
-2. App will have multiple "components" to display data and interact with state. Components will include
-- DataTable
-- DataBody
-- Header
-- Nav
-- SearchBox
-3. You should have a high order component to wrap the nav bar and the DataArea. This order component
-is what will be whats returned from the highest level `App` Component. 
-4. You dont need to write an express server and database, instead you can use this API to get fake employee data:
-https://randomuser.me/
-4a) Use axios to fetch data from this API
-Hint 1)
-All of the application logic will live in the application container
-Hint 2)
-To do the sorting here is a comparator function:
-(edited)
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
+### Deployment
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
+### `npm run build` fails to minify
 
-
-9:04
-    const compareFnc = (a, b) => {
-      if (this.state.order === "ascend") {
-        // account for missing values
-        if (a[heading] === undefined) {
-          return 1;
-        } else if (b[heading] === undefined) {
-          return -1;
-        }
-        // numerically
-        else if (heading === "name") {
-          return a[heading].first.localeCompare(b[heading].first);
-        } else {
-          return a[heading] - b[heading];
-        }
-      } else {
-        // account for missing values
-        if (a[heading] === undefined) {
-          return 1;
-        } else if (b[heading] === undefined) {
-          return -1;
-        }
-        // numerically
-        else if (heading === "name") {
-          return b[heading].first.localeCompare(a[heading].first);
-        } else {
-          return b[heading] - a[heading];
-        }
-      }
-    }
-
-Evan Arbeitman  1:21 PM
-hey @channel wanted to clarify one of the hints I gave out early
-1:21
-3. You should have a high order component to wrap the nav bar and the DataArea. This order component
-1:22
-There isnt a navbar component
-1:22
-The table header needs to have a column to search by (i.e name)
-1:22
-the higher level container will hold both the search bar and the table itself.
-1:23
-So there will be a page header and a table header. Nav bar was meant to be table header
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
